@@ -34,7 +34,9 @@ async function getWeather(city){
     catch(error){
 
         weatherResult.innerHTML = `
-        <p>${error.message}</p>
+        <p style="color:red;">
+            ${error.message}
+        </p>
         `;
 
     }
@@ -44,5 +46,14 @@ searchBtn.addEventListener("click", () => {
     const city = cityInput.value;
 
     getWeather(city);
+
+});
+cityInput.addEventListener("keypress", (event) => {
+
+    if(event.key === "Enter"){
+
+        searchBtn.click();
+
+    }
 
 });
